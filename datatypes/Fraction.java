@@ -24,6 +24,13 @@ class Fraction{
         this.y = y;
     }
     
+    public void suit(){
+        if(y<0){
+            y=-y;
+            x=-x;
+        }
+    }
+    
     public void add(Fraction f) {
         this.x=this.x*f.getY()+this.y*f.getX();
         this.y =f.getY()*this.y;
