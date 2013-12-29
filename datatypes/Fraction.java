@@ -68,6 +68,9 @@ class Fraction{
      }
      
     public void prints(){
+         suit();
+         if(this.y==1)
+            return this.x+"";
          System.out.println("Fraction="+this.x+"/"+this.y);
      }
     
