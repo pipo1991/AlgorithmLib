@@ -39,7 +39,7 @@ class BST{
         if(root==null)
             root=new BST(x);
         if(root.getData()==Integer.MAX_VALUE)
-            root.setData(Integer.MAX_VALUE);
+            root.setData(x);
         if(root.getData()==x)
             return;
         if(x<root.getData()){
