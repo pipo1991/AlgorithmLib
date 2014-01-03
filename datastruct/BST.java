@@ -126,7 +126,7 @@ class BST{
     
     static int getMaxDepth(BST bst){
         if(bst.getRight()==null && bst.getLeft()==null)
-            return 0;
+            return 1;
         return Math.max(getMaxDepth(bst.getLeft()),getMaxDepth(bst.getRight()))+1;
     }
 }
