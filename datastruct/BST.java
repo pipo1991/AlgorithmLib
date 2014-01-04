@@ -1,3 +1,47 @@
+//Manipulate class for BST
+class BSTree{
+    private BST tree;
+
+    public BSTree() {
+        tree=null;
+    }
+    
+    void add(int x){
+        if(tree==null){
+            tree=new BST(x);
+        }else{
+            BST.insertNode(tree, x);
+        }
+    }
+    
+    void delete(int x){
+        if(tree!=null){
+            boolean flag=tree.isOnlyRoot();
+            int returnVal=BST.deleteNode(tree, x);
+            if(flag && returnVal==1){
+                tree=null;
+            }
+        }else{
+            System.out.println("Warning !! Deleting from an empty tree.");
+        }
+    }
+    
+    int search(int x){
+        return BST.search(tree, x);
+    }
+    
+    int getMax(){
+        return BST.getMax(tree);
+    }
+    
+    int getMin(){
+        return BST.getMin(tree);
+    }
+    
+    int getDepth(){
+        return BST.getMaxDepth(tree);
+    }
+}
 // simple implemantation for simple unbalnced BST
 class BST{
     private BST right;
@@ -36,10 +80,6 @@ class BST{
    
     //Using Recursion
     static void insertNode(BST root, int x){
-        if(root==null)
-            root=new BST(x);
-        if(root.getData()==Integer.MAX_VALUE)
-            root.setData(x);
         if(root.getData()==x)
             return;
         if(x<root.getData()){
@@ -53,17 +93,13 @@ class BST{
                 root.setRight(new BST(x));
             else
               insertNode(root.getRight(),x);
-        }    
+        }
     }
    
     
     static int deleteNode(BST root, int x){
         if(root==null){
             return -1;
-        }
-        if(root.getData()==x){
-            root.setData(Integer.MAX_VALUE);
-            return 1;
         }
         BST parent=root;
         BST temp=root;
@@ -111,6 +147,9 @@ class BST{
        return 1;
     }
     
+    public boolean isOnlyRoot(){
+        return this.left==null && this.right==null;
+    }
             
     static int search(BST root, int x){
         if(root== null)
@@ -124,9 +163,26 @@ class BST{
         return search(root.getRight(), x);
     }
     
+    
     static int getMaxDepth(BST bst){
-        if(bst.getRight()==null && bst.getLeft()==null)
-            return 1;
+        if(bst==null)
+            return 0;
         return Math.max(getMaxDepth(bst.getLeft()),getMaxDepth(bst.getRight()))+1;
+    }
+    
+    static int getMin(BST bst){
+        BST temp=bst;
+        while(temp.getLeft()!=null){
+            temp=temp.getLeft();
+        }
+        return temp.getData();
+    }
+    
+    static int getMax(BST bst){
+        BST temp=bst;
+        while(temp.getRight()!=null){
+            temp=temp.getRight();
+        }
+        return temp.getData();
     }
 }
