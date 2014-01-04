@@ -98,9 +98,6 @@ class BST{
    
     
     static int deleteNode(BST root, int x){
-        if(root==null){
-            return -1;
-        }
         BST parent=root;
         BST temp=root;
        while(temp!=null && temp.getData()!=x){
@@ -116,32 +113,10 @@ class BST{
            return -1;
        }
        while(true){
-           if(temp.getLeft()==null && temp.getRight()==null){
-               if(parent.getLeft()!=null && parent.getLeft().getData()==temp.getData()){
-                   parent.setLeft(null);
-               }else{
-                   parent.setRight(null);
-               }
-               break;
-           }
-           else if(temp.getLeft()!=null){
-               temp.setData(temp.getLeft().getData());
-               BST child=temp.getLeft();
-               if(child.getLeft()==null && child.getLeft()==null){
-                   temp.setLeft(null);
-                   break;
-               }
-               temp=child;
-           }
-           else if(temp.getRight()!=null){
-               temp.setData(temp.getRight().getData());
-               BST child=temp.getRight();
-               if(child.getLeft()==null && child.getLeft()==null){
-                   temp.setRight(null);
-                   break;
-               }
-               temp=child;
-           }
+           /*
+            *  To be implemented ... 
+            *  Removing the node 
+            */
        }
        //Deleted
        return 1;
