@@ -1,6 +1,5 @@
 
 
-
 public class Sort {
     
    //Mergesort for sorting array in Ascending Order.
@@ -171,8 +170,6 @@ public class Sort {
          for(int i=0;i<x.length;i++){
              aux[x[i]]++;
          }
-         
-         int sum=aux[0],element=0;
          
          for(int i=1;i<aux.length;i++){
              aux[i]+=aux[i-1];
