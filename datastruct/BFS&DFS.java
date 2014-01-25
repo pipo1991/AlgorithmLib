@@ -19,7 +19,7 @@ public class Main {
        g.addChild(g2);
        g.addChild(g3);
        System.out.println("BFS:");
-       //bfs(g);
+       bfs(g);
        System.out.println("DFS:");
        dfs(g);
     }
